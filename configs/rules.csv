@@ -1,0 +1,8 @@
+col,type,parameters,rule_name
+age,ge,16,
+value,range_e,"25,100",
+nid,len_g,10,
+age,sum,value,age_value_sum
+age,op_sum,10,age_sum_10
+value,op_power,2,value_power_2
+value,op_division,10,value_division_10
