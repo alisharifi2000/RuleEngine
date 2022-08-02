@@ -1,6 +1,4 @@
-from rules.range_rules import define_range_rules
-from rules.len_rules import define_len_rules
-from rules.rule_classes import RangeRule, LengthRule, FiledsOpertion, Operation
+from rules.rule_classes import RangeRule, LengthRule, FiledsOpertion, Operation , BoolianOperator
 import pandas as pd
 
 df = pd.DataFrame({'age': [10, 12, 26, 5, 67, 8, 99, 100],
@@ -18,6 +16,7 @@ len_rule_obj = LengthRule(config=rules, data=df)
 range_rule_obj = RangeRule(config=rules, data=df)
 field_rule_obj = FiledsOpertion(config=rules, data=df)
 op_rule_obj = Operation(config=rules, data=df)
+
 
 len_rule_obj.find_configs()
 len_rule_obj.validate_config()
@@ -42,3 +41,13 @@ op_rule_obj.validate_config()
 op_rule_obj.apply_rules()
 df = pd.concat([df, op_rule_obj.data], axis=1)
 print(df)
+
+
+bool_rule_obj = BoolianOperator(config=rules, data=df)
+bool_rule_obj.find_configs()
+bool_rule_obj.validate_config()
+bool_rule_obj.apply_rules()
+df = pd.concat([df, bool_rule_obj.data], axis=1)
+print(df)
+
+df.to_csv('result.csv', index=False)
