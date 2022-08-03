@@ -6,23 +6,23 @@ def define_len_rules(parameter):
     parameters = parameter[1]['parameters']
 
     if types == 'len':
-        data[f'{col}_len'] = data[col].str.len()
+        data[f'{col}_len'] = data[col].apply(lambda x: len(str(x)))
         data[rule_name] = (data[f'{col}_len'] == int(parameters))
 
     elif types == 'len_g':
-        data[f'{col}_len'] = data[col].str.len()
+        data[f'{col}_len'] = data[col].apply(lambda x: len(str(x)))
         data[rule_name] = (data[f'{col}_len'] > int(parameters))
 
     elif types == 'len_ge':
-        data[f'{col}_len'] = data[col].str.len()
+        data[f'{col}_len'] = data[col].apply(lambda x: len(str(x)))
         data[rule_name] = (data[f'{col}_len'] >= int(parameters))
 
     elif types == 'len_l':
-        data[f'{col}_len'] = data[col].str.len()
+        data[f'{col}_len'] = data[col].apply(lambda x: len(str(x)))
         data[rule_name] = (data[f'{col}_len'] < int(parameters))
 
     elif types == 'len_le':
-        data[f'{col}_len'] = data[col].str.len()
+        data[f'{col}_len'] = data[col].apply(lambda x: len(str(x)))
         data[rule_name] = (data[f'{col}_len'] <= int(parameters))
 
     return data[[rule_name]]

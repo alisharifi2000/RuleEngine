@@ -1,15 +1,12 @@
-from rules.rule_classes import RangeRule, LengthRule, FiledsOpertion, Operation , BoolianOperator
+from rules.rule_classes import RangeRule, LengthRule, FiledsOpertion, Operation, BoolianOperator
 import pandas as pd
 
-# make sample data
-df = pd.DataFrame({'age': [10, 12, 26, 5, 67, 8, 99, 100],
-                   'value': [10, 12, 26, 5, 67, 85, 99, 100],
-                   'nid': ['100000000', '02023240506', '122949214949',
-                           '99990020021020102', '0000001221312',
-                           '99990020021020102', '0000001221312',
-                           '99990020021020102']})
-
 # read rules config
+df = pd.read_csv(filepath_or_buffer='./data/sample.csv')
+df.age = df.age.astype('int32')
+df.value = df.value.astype('int32')
+df.nid = df.nid.astype('object')
+
 rules = pd.read_json(path_or_buf='./configs/rules.json', orient='records')
 print(rules.head(5))
 
@@ -46,7 +43,6 @@ op_rule_obj.validate_config()
 op_rule_obj.apply_rules()
 df = pd.concat([df, op_rule_obj.data], axis=1)
 print(df)
-
 
 # bool operation rules
 bool_rule_obj = BoolianOperator(config=rules, data=df)
