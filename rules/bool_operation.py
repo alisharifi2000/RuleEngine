@@ -6,9 +6,9 @@ def define_boolian_operation(parameter):
     parameters = parameter[1]['parameters']
 
     if types == 'and':
-        data[rule_name] = (data[col] & data[parameters[0]])
+        data[rule_name] = (data[col] & data[parameters])
 
     elif types == 'or':
-        data[rule_name] = (data[col] | data[parameters[0]])
+        data[rule_name] = (data[col] | data[parameters])
 
     return data[[rule_name]]
