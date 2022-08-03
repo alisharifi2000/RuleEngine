@@ -121,7 +121,7 @@ class FiledsOpertion(Rule):
 class RangeRule(Rule):
     def __init__(self, config, data):
         super().__init__(config, data)
-        self.types = ['range', 'range_e', 'range_l', 'range_g', 'g', 'l', 'ge', 'le']
+        self.types = ['range', 'range_e', 'range_l', 'range_g', 'gt', 'lt', 'ge', 'le']
 
     def find_configs(self):
         range_rule_par = self.types

@@ -1,0 +1,62 @@
+[
+  {
+    "col": "value",
+    "type": "range_e",
+    "parameters": [25,100],
+    "rule_name": "value_range"
+  },
+  {
+    "col": "nid",
+    "type": "len_g",
+    "parameters": 10,
+    "rule_name": "nid_lenght"
+  },
+  {
+    "col": "age",
+    "type": "sum",
+    "parameters": "value",
+    "rule_name": "age_value_sum"
+  },
+  {
+    "col": "age",
+    "type": "subtract",
+    "parameters": "value",
+    "rule_name": "age_value_subtract"
+  },
+  {
+    "col": "age",
+    "type": "multiply",
+    "parameters": "value",
+    "rule_name": "age_value_multiply"
+  },
+  {
+    "col": "age",
+    "type": "op_sum",
+    "parameters": 10,
+    "rule_name": "age_sum_10"
+  },
+  {
+    "col": "value",
+    "type": "op_power",
+    "parameters": 2,
+    "rule_name": "value_power_2"
+  },
+  {
+    "col": "value",
+    "type": "op_division",
+    "parameters": 10,
+    "rule_name": "value_division_10"
+  },
+  {
+    "col": "age",
+    "type": "le",
+    "parameters": 90,
+    "rule_name": "age_90"
+  },
+  {
+    "col": "age_90",
+    "type": "and",
+    "parameters": "nid_lenght",
+    "rule_name": "age_90_nid_lenght"
+  }
+]

@@ -8,7 +8,8 @@ df = pd.DataFrame({'age': [10, 12, 26, 5, 67, 8, 99, 100],
                            '99990020021020102', '0000001221312',
                            '99990020021020102']})
 
-rules = pd.read_csv('./configs/rules.csv')
+rules = pd.read_json(path_or_buf='./configs/rules.json', orient='records')
+# rules = pd.read_csv('./configs/rules.csv')
 print(rules.head(5))
 
 
